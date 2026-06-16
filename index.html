@@ -115,15 +115,31 @@
 <header class="hero hero--full" id="topo">
   <div class="hero-bg iap-hero-bg"></div>
   <svg class="iap-flow" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="iaFoldA" x1="0.1" y1="0" x2="0.3" y2="1">
+        <stop offset="0" stop-color="#0b1730" stop-opacity="0"/>
+        <stop offset="0.5" stop-color="#17273f" stop-opacity="0.6"/>
+        <stop offset="1" stop-color="#070d1c" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="iaFoldB" x1="0.1" y1="0" x2="0.35" y2="1">
+        <stop offset="0" stop-color="#1a0e16" stop-opacity="0"/>
+        <stop offset="0.55" stop-color="#2a121a" stop-opacity="0.55"/>
+        <stop offset="1" stop-color="#0a0610" stop-opacity="0"/>
+      </linearGradient>
+      <filter id="iaGlow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter>
+    </defs>
     <g class="iap-flow-g">
-      <path class="fl"    d="M-80 240 C 360 140, 820 360, 1540 190"/>
-      <path class="fl-b"  d="M-80 320 C 360 200, 830 470, 1540 290"/>
-      <path class="fl"    d="M-80 400 C 380 270, 850 560, 1540 370"/>
-      <path class="fl"    d="M-80 490 C 380 350, 860 650, 1540 460"/>
-      <path class="fl"    d="M-80 580 C 400 430, 880 740, 1540 560"/>
-      <path class="fl-w"  d="M-80 670 C 420 510, 900 820, 1540 650"/>
-      <path class="fl-wb" d="M-80 760 C 440 600, 920 900, 1540 750"/>
-      <path class="fl-w"  d="M-80 850 C 460 690, 940 960, 1540 840"/>
+      <path class="iaf-band" d="M-100 340 C 420 220, 900 560, 1540 300 L1540 470 C 900 700, 420 380, -100 500 Z" fill="url(#iaFoldA)"/>
+      <path class="iaf-band" d="M-100 600 C 460 450, 960 800, 1540 560 L1540 760 C 960 980, 460 640, -100 760 Z" fill="url(#iaFoldB)"/>
+      <path class="iaf-fl" d="M-80 300 C 380 190, 840 470, 1540 270"/>
+      <path class="iaf-fl" d="M-80 440 C 400 310, 870 610, 1540 410"/>
+      <path class="iaf-fl" d="M-80 560 C 420 420, 900 730, 1540 540"/>
+      <path class="iaf-glow iaf-glow-b" d="M-80 380 C 380 250, 870 540, 1540 330" filter="url(#iaGlow)"/>
+      <path class="iaf-blue" d="M-80 380 C 380 250, 870 540, 1540 330"/>
+      <path class="iaf-glow iaf-glow-r" d="M-80 720 C 470 560, 970 880, 1540 690" filter="url(#iaGlow)"/>
+      <path class="iaf-red" d="M-80 720 C 470 560, 970 880, 1540 690"/>
+      <path class="iaf-glow iaf-glow-r" d="M-80 830 C 490 670, 990 960, 1540 800" filter="url(#iaGlow)"/>
+      <path class="iaf-red" d="M-80 830 C 490 670, 990 960, 1540 800"/>
     </g>
   </svg>
   <div class="hero-scrim"></div>
