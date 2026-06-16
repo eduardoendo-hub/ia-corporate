@@ -113,13 +113,25 @@
 
 <!-- ===== HERO ===== -->
 <header class="hero hero--full" id="topo">
-  <div class="hero-bg has-photo" style="background-image:url('assets/ia-bg.jpg')"></div>
+  <div class="hero-bg iap-hero-bg"></div>
+  <svg class="iap-circuit" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <pattern id="iaCirc" width="96" height="96" patternUnits="userSpaceOnUse">
+        <path d="M0 28 H38 V0 M38 28 V64 H96 M24 96 V52 H0 M72 0 V34 H96 M60 96 V74 H96 M38 64 H12 M96 50 H68 V96" fill="none" stroke="#2E78C9" stroke-width="1.3" opacity="0.55"/>
+        <g fill="#5EA6C8">
+          <circle cx="38" cy="28" r="2.6"/><circle cx="38" cy="64" r="2"/><circle cx="72" cy="34" r="2"/><circle cx="24" cy="52" r="1.8"/><circle cx="68" cy="50" r="1.8"/>
+        </g>
+      </pattern>
+    </defs>
+    <rect width="1440" height="900" fill="url(#iaCirc)"/>
+  </svg>
+  <div class="iap-circuit-sweep"></div>
   <div class="hero-scrim"></div>
   <div class="container hero-wrap">
-    <div class="hero-content">
-      <span class="iap-badge">Impacta <b>×</b> Olhar Digital · autoridade em IA</span>
-      <h1 class="hero-title2">Treinamento de IA para empresas,<br><span class="ac">do discurso à prática.</span></h1>
-      <p class="hero-sub2">Programas de IA aplicada para líderes, áreas de negócio e times técnicos — com jornada por maturidade, governança e métricas. Sua empresa transforma IA em processo, cultura e resultado.</p>
+    <div class="hero-content iap-hero-center">
+      <span class="iap-badge">Treinamento de IA para empresas · Impacta <b>×</b> Olhar Digital</span>
+      <h1 class="hero-title2">Sua empresa pronta para usar <span class="ac">IA de verdade</span>.</h1>
+      <p class="hero-sub2">Capacitação, evolução de times e projetos aplicados para transformar IA em produtividade, inovação e resultado.</p>
       <div class="iap-hero-cta">
         <a href="#diagnostico" class="btn btn--primary btn--lg" data-cta="proposta">Agendar diagnóstico de IA <span class="ar">→</span></a>
         <a href="#jornada" class="btn btn--ghost btn--lg">Ver a jornada de IA</a>
