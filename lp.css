@@ -1159,20 +1159,23 @@ section.lit{--lit-o:1}
 .iap-badge b{color:var(--blue-2);font-weight:700}
 .iap-hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 36px}
 .iap-hero-cta .btn{border-radius:999px}
-.hero--full .hero-bg.iap-hero-bg{background:radial-gradient(125% 105% at 82% 70%, rgba(222,70,50,.5) 0%, rgba(184,54,40,.3) 26%, rgba(120,40,30,.14) 46%, rgba(80,28,24,.05) 64%, rgba(74,26,22,0) 78%), radial-gradient(95% 85% at 38% 98%, rgba(176,52,40,.24) 0%, rgba(110,36,28,.09) 40%, rgba(74,26,22,0) 66%), linear-gradient(160deg, #0a1326 0%, #07101f 54%, #04060c 100%)}
+.hero--full .hero-bg.iap-hero-bg{background:radial-gradient(125% 105% at 82% 70%, rgba(236,80,58,.62) 0%, rgba(196,58,42,.36) 26%, rgba(130,42,32,.16) 46%, rgba(84,30,25,.06) 64%, rgba(74,26,22,0) 78%), radial-gradient(98% 88% at 36% 98%, rgba(186,56,42,.28) 0%, rgba(116,38,30,.1) 40%, rgba(74,26,22,0) 66%), linear-gradient(160deg, #0a1326 0%, #07101f 54%, #04060c 100%)}
 .iap-flow{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
-.iap-flow .iaf-band{opacity:.6}
-.iap-flow .iaf-fl,.iap-flow .iaf-blue,.iap-flow .iaf-glow,.iap-flow .iaf-red{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.iap-flow .iaf-fl{stroke:rgba(150,175,220,.13);stroke-width:1}
-.iap-flow .iaf-blue{stroke:rgba(208,226,255,.62);stroke-width:1.4}
-.iap-flow .iaf-glow-b{stroke:rgba(120,170,255,.42);stroke-width:3}
-.iap-flow .iaf-red{stroke:rgba(255,76,58,.92);stroke-width:1.7}
-.iap-flow .iaf-glow-r{stroke:rgba(255,48,38,.6);stroke-width:5.5}
-.iap-flow-g{animation:iaFlowDrift 30s ease-in-out infinite alternate}
-@keyframes iaFlowDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-26px,18px,0)}}
-.iap-flow .iaf-red,.iap-flow .iaf-glow-r,.iap-flow .iaf-blue{animation:iaLinePulse 6.5s ease-in-out infinite}
-@keyframes iaLinePulse{0%,100%{opacity:.78}50%{opacity:1}}
-@media(prefers-reduced-motion:reduce){.iap-flow-g,.iap-flow .iaf-red,.iap-flow .iaf-glow-r,.iap-flow .iaf-blue{animation:none}}
+.iap-flow .iaf-band{opacity:.64}
+.iap-flow .iaf-fl,.iap-flow .iaf-blue,.iap-flow .iaf-glow,.iap-flow .iaf-red,.iap-flow .iaf-pulse{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.iap-flow .iaf-fl{stroke:rgba(162,188,232,.2);stroke-width:1.1}
+.iap-flow .iaf-blue{stroke:rgba(216,232,255,.82);stroke-width:1.7}
+.iap-flow .iaf-glow-b{stroke:rgba(120,170,255,.55);stroke-width:3.6}
+.iap-flow .iaf-red{stroke:rgba(255,82,62,1);stroke-width:2}
+.iap-flow .iaf-glow-r{stroke:rgba(255,54,42,.74);stroke-width:7}
+.iap-flow .iaf-pulse{stroke:rgba(255,176,146,.95);stroke-width:2.7;stroke-dasharray:24 2000;animation:iaPulseFlow 4.2s linear infinite}
+.iap-flow .iaf-pulse-b{stroke:rgba(196,224,255,.92);animation:iaPulseFlow 5.6s linear infinite;animation-delay:-2.2s}
+@keyframes iaPulseFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-2024}}
+.iap-flow-g{animation:iaFlowDrift 17s ease-in-out infinite alternate}
+@keyframes iaFlowDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-44px,28px,0)}}
+.iap-flow .iaf-red,.iap-flow .iaf-glow-r,.iap-flow .iaf-blue{animation:iaLinePulse 6s ease-in-out infinite}
+@keyframes iaLinePulse{0%,100%{opacity:.82}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.iap-flow-g,.iap-flow .iaf-red,.iap-flow .iaf-glow-r,.iap-flow .iaf-blue,.iap-flow .iaf-pulse,.iap-flow .iaf-pulse-b{animation:none}}
 .hero-content.iap-hero-center{max-width:880px;margin:0 auto;text-align:center}
 .iap-hero-center .hero-sub2{max-width:60ch;margin-left:auto;margin-right:auto}
 .iap-hero-center .iap-hero-cta{justify-content:center}
@@ -1226,11 +1229,11 @@ section.lit{--lit-o:1}
 /* ===== Impacta + Inner AI ===== */
 .iap-inner{background:var(--deep)}
 .iap-inner-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
-.iap-inner-lockup{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.iap-lk-imp{height:26px;width:auto}
-.iap-lk-plus{color:var(--blue-2);font-size:26px;font-weight:300;line-height:1}
-.iap-lk-inner{font-family:var(--font);font-size:24px;font-weight:400;color:#fff;letter-spacing:-.01em}
-.iap-lk-inner b{font-weight:700}
+.iap-inner-lockup{display:flex;align-items:center;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.iap-lk-inner{font-family:var(--font);font-size:42px;font-weight:400;color:#fff;letter-spacing:-.02em;line-height:1}
+.iap-lk-inner b{font-weight:700;color:#fff}
+.iap-lk-plus{color:var(--tx-3);font-size:20px;font-weight:300;line-height:1}
+.iap-lk-imp{height:18px;width:auto;opacity:.62}
 .iap-inner-p{color:var(--tx-2);font-size:16px;line-height:1.6;margin-bottom:26px;max-width:46ch}
 .iap-tools{display:flex;flex-wrap:wrap;gap:10px}
 .iap-tool{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.04);font-size:14px;font-weight:500;color:var(--tx);letter-spacing:.01em}
@@ -1246,10 +1249,9 @@ section.lit{--lit-o:1}
 
 /* ===== Impact360 ===== */
 .i360-sub{font-size:22px;font-weight:700;letter-spacing:-.01em;color:#fff;margin:0 0 22px;text-align:center}
-.i360-logo{display:flex;align-items:center;justify-content:center;gap:20px;margin:0 0 56px}
-.i360-logo .i360-ai{height:78px;width:auto;filter:drop-shadow(0 0 16px rgba(120,170,255,.3))}
-.i360-360{font-family:var(--font);font-size:58px;font-weight:700;color:var(--blue-2);letter-spacing:-.03em;line-height:1}
-@media(max-width:560px){.i360-logo .i360-ai{height:58px}.i360-360{font-size:44px}}
+.i360-logo{display:flex;align-items:center;justify-content:center;margin:0 0 56px}
+.i360-wordmark{font-family:var(--font);font-weight:700;font-size:clamp(46px,7vw,92px);color:#fff;letter-spacing:-.035em;line-height:1}
+.i360-wordmark span{color:var(--blue-2)}
 .i360-acro{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:0 0 56px}
 .i360-l{flex:1 1 0;min-width:120px;max-width:160px;text-align:center;padding:22px 14px;border-radius:16px;background:var(--s1);border:1px solid var(--line)}
 .i360-l b{display:block;font-family:var(--font);font-size:34px;font-weight:700;color:var(--blue-2);letter-spacing:-.02em;line-height:1}
