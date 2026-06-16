@@ -1246,6 +1246,10 @@ section.lit{--lit-o:1}
 
 /* ===== Impact360 ===== */
 .i360-sub{font-size:22px;font-weight:700;letter-spacing:-.01em;color:#fff;margin:0 0 22px;text-align:center}
+.i360-logo{display:flex;align-items:center;justify-content:center;gap:20px;margin:0 0 56px}
+.i360-logo .i360-ai{height:78px;width:auto;filter:drop-shadow(0 0 16px rgba(120,170,255,.3))}
+.i360-360{font-family:var(--font);font-size:58px;font-weight:700;color:var(--blue-2);letter-spacing:-.03em;line-height:1}
+@media(max-width:560px){.i360-logo .i360-ai{height:58px}.i360-360{font-size:44px}}
 .i360-acro{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:0 0 56px}
 .i360-l{flex:1 1 0;min-width:120px;max-width:160px;text-align:center;padding:22px 14px;border-radius:16px;background:var(--s1);border:1px solid var(--line)}
 .i360-l b{display:block;font-family:var(--font);font-size:34px;font-weight:700;color:var(--blue-2);letter-spacing:-.02em;line-height:1}
@@ -1276,7 +1280,8 @@ section.lit{--lit-o:1}
 @keyframes ecoSpin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
 .eco-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;width:30%;aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:radial-gradient(circle,rgba(46,120,201,.22),rgba(8,12,22,.92) 72%);border:1px solid rgba(46,120,201,.5);animation:ecoPulse 4.5s ease-in-out infinite}
 @keyframes ecoPulse{0%,100%{box-shadow:0 0 0 1px rgba(46,120,201,.3),0 0 54px -12px rgba(46,120,201,.55)}50%{box-shadow:0 0 0 1px rgba(46,120,201,.55),0 0 80px -6px rgba(46,120,201,.9)}}
-.eco-core img{width:66%;height:auto}
+.eco-core .eco-ai{width:44%;height:auto;filter:drop-shadow(0 0 12px rgba(120,170,255,.35))}
+.eco-core .eco-imp{width:48%;height:auto;opacity:.5;margin-top:2px}
 .eco-core-tag{font-family:var(--mono);font-size:10px;letter-spacing:.26em;color:var(--blue-2)}
 .eco-node{position:absolute;transform:translate(-50%,-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;width:128px;animation:ecoFloat 6.5s ease-in-out infinite}
 .eco-node:nth-child(6){animation-delay:-1s}.eco-node:nth-child(7){animation-delay:-2s}.eco-node:nth-child(8){animation-delay:-3s}.eco-node:nth-child(9){animation-delay:-4s}.eco-node:nth-child(10){animation-delay:-5s}
