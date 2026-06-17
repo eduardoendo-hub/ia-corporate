@@ -16,8 +16,8 @@
   'use strict';
 
   var CFG = {
-    PRODUCT_SLUG:    'ia-corporate',
-    CAMPAIGN_SLUG:   'ia-corporate-institucional', // campanha padrão (orgânico/institucional);
+    PRODUCT_SLUG:    'corporativo',
+    CAMPAIGN_SLUG:   'corporativo', // campanha padrão (orgânico/institucional);
                                                   // campanhas reais chegam via utm_campaign na URL.
     IRIS_EVENTS_URL: 'https://iris.technowhub.ai/api/events',
     CURRENCY:        'BRL',
@@ -109,7 +109,7 @@
           sendIrisEvent('click_whats', { channel: 'whatsapp' });
           track('Contact', { placement: 'whatsapp' });
         } else if (cta === 'proposta') {
-          sendIrisEvent('click_cta', { channel: 'proposta' });
+          sendIrisEvent('click_consultor', { channel: 'proposta' });
         }
       });
     });
@@ -173,7 +173,7 @@
         msg:       (f.msg       && f.msg.value       || '').trim()
       };
       // IRIS: evento de lead (sem PII sensível — empresa/interesse para o cockpit)
-      sendIrisEvent('lead', { empresa: data.empresa, interesse: data.interesse, porte: data.porte });
+      sendIrisEvent('lead_form', { empresa: data.empresa, interesse: data.interesse, porte: data.porte });
       track('Lead', { content_name: data.interesse || 'corporate' });
       // RD Station (no-op até configurar o token)
       sendToRD(data);
