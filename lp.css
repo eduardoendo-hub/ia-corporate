@@ -261,8 +261,8 @@ section.lit{--lit-o:1}
     linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
   background-size:54px 54px;mask-image:radial-gradient(ellipse 95% 85% at 72% 26%,#000,transparent 75%)}
 .hero-scrim{position:absolute;inset:0;z-index:1;background:
-  linear-gradient(90deg,rgba(3,4,8,.95) 0%,rgba(3,4,8,.82) 32%,rgba(3,4,8,.34) 66%,rgba(3,4,8,.62) 100%),
-  linear-gradient(180deg,rgba(3,4,8,.5),rgba(3,4,8,.32) 38%,rgba(3,4,8,.92))}
+  radial-gradient(115% 95% at 50% 44%, rgba(4,5,9,.8) 0%, rgba(4,5,9,.52) 38%, rgba(4,5,9,.14) 72%, rgba(4,5,9,0) 100%),
+  linear-gradient(180deg,rgba(4,5,9,.42) 0%,rgba(4,5,9,.1) 40%,rgba(4,5,9,.5) 100%)}
 .hero-imgchip{position:absolute;z-index:4;top:18px;right:18px;font-size:11px;color:var(--tx-3);
   background:rgba(7,11,22,.66);border:1px dashed var(--line-2);padding:6px 13px;border-radius:999px;
   backdrop-filter:blur(6px);letter-spacing:.01em}
@@ -1159,17 +1159,17 @@ section.lit{--lit-o:1}
 .iap-badge b{color:var(--blue-2);font-weight:700}
 .iap-hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 36px}
 .iap-hero-cta .btn{border-radius:999px}
-.hero--full .hero-bg.iap-hero-bg{background:radial-gradient(125% 105% at 82% 70%, rgba(236,80,58,.62) 0%, rgba(196,58,42,.36) 26%, rgba(130,42,32,.16) 46%, rgba(84,30,25,.06) 64%, rgba(74,26,22,0) 78%), radial-gradient(98% 88% at 36% 98%, rgba(186,56,42,.28) 0%, rgba(116,38,30,.1) 40%, rgba(74,26,22,0) 66%), linear-gradient(160deg, #0a1326 0%, #07101f 54%, #04060c 100%)}
+.hero--full .hero-bg.iap-hero-bg{background:radial-gradient(120% 120% at 80% 62%, rgba(232,78,56,.42) 0%, rgba(176,52,40,.2) 30%, rgba(96,34,28,.07) 52%, rgba(60,26,22,0) 70%), radial-gradient(95% 85% at 20% 100%, rgba(196,58,44,.22) 0%, rgba(96,34,28,.08) 42%, rgba(60,26,22,0) 66%), linear-gradient(160deg, #0f1013 0%, #0a0b0e 54%, #050507 100%)}
 .iap-flow{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
-.iap-flow .iaf-band{opacity:.64}
+.iap-flow .iaf-band{opacity:.5}
 .iap-flow .iaf-fl,.iap-flow .iaf-blue,.iap-flow .iaf-glow,.iap-flow .iaf-red,.iap-flow .iaf-pulse{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.iap-flow .iaf-fl{stroke:rgba(162,188,232,.2);stroke-width:1.1}
-.iap-flow .iaf-blue{stroke:rgba(216,232,255,.82);stroke-width:1.7}
-.iap-flow .iaf-glow-b{stroke:rgba(120,170,255,.55);stroke-width:3.6}
-.iap-flow .iaf-red{stroke:rgba(255,82,62,1);stroke-width:2}
-.iap-flow .iaf-glow-r{stroke:rgba(255,54,42,.74);stroke-width:7}
-.iap-flow .iaf-pulse{stroke:rgba(255,176,146,.95);stroke-width:2.7;stroke-dasharray:24 2000;animation:iaPulseFlow 4.2s linear infinite}
-.iap-flow .iaf-pulse-b{stroke:rgba(196,224,255,.92);animation:iaPulseFlow 5.6s linear infinite;animation-delay:-2.2s}
+.iap-flow .iaf-fl{stroke:rgba(200,206,220,.16);stroke-width:1}
+.iap-flow .iaf-blue{stroke:rgba(232,236,244,.62);stroke-width:1.5}
+.iap-flow .iaf-glow-b{stroke:rgba(180,190,210,.26);stroke-width:3.2}
+.iap-flow .iaf-red{stroke:rgba(234,86,64,.82);stroke-width:1.8}
+.iap-flow .iaf-glow-r{stroke:rgba(226,66,50,.44);stroke-width:6}
+.iap-flow .iaf-pulse{stroke:rgba(255,198,172,.85);stroke-width:2.5;stroke-dasharray:24 2000;animation:iaPulseFlow 4.2s linear infinite}
+.iap-flow .iaf-pulse-b{stroke:rgba(236,240,248,.78);animation:iaPulseFlow 5.6s linear infinite;animation-delay:-2.2s}
 @keyframes iaPulseFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-2024}}
 .iap-flow-g{animation:iaFlowDrift 17s ease-in-out infinite alternate}
 @keyframes iaFlowDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-44px,28px,0)}}
