@@ -29,10 +29,11 @@
     // Mantenha RD_ENABLED=false até o backend liberar CORS p/ esta origem —
     // assim não disparamos leads de teste na produção. Em impacta.com.br/corporate
     // (mesma origem) o CORS deixa de ser problema.
-    RD_ENABLED:               false,
+    RD_ENABLED:               true,
     RD_ENDPOINT:              'https://apiv2.impacta.com.br/api/v1/rdstation/corporate',
-    RD_CONVERSION_IDENTIFIER: 'ia corporativa',   // NOVO identificador (segmenta leads de IA);
-                                                  // exige replicar a automação no RD com esse nome.
+    RD_CONVERSION_IDENTIFIER: 'soluções corporativas',   // MESMO identificador do hub p/ usar a
+                                                  // automação que já abre oportunidade. A marcação
+                                                  // de que é IA vai no CORPO (produto + origem + tags).
   };
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
@@ -127,7 +128,7 @@
       email:     payload.email,
       telefone:  payload.telefone,
       empresa:   payload.empresa,
-      produto:   payload.interesse,   // mapeia "Solução de interesse" -> produto
+      produto:   'IA Corporativa' + (payload.interesse ? ' — ' + payload.interesse : ''),   // marca IA por texto no corpo
       tamanho:   payload.porte,       // "Nº de colaboradores" -> tamanho
       cargo:     payload.cargo,
       consentimento_email: payload.consent ? 'true' : 'false',
