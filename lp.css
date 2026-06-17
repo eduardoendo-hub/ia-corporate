@@ -28,20 +28,31 @@ section{position:relative}
 
 /* page ambient bg */
 .page-bg{position:fixed;inset:0;z-index:-2;background:
-  radial-gradient(1100px 700px at 82% -10%,rgba(46,120,201,.11),transparent 60%),
-  radial-gradient(900px 600px at -8% 16%,rgba(94,166,200,.05),transparent 55%),
-  linear-gradient(180deg,#0a0f1c,#070910 42%);}
+  radial-gradient(1100px 720px at 84% -8%,rgba(214,66,50,.13),transparent 60%),
+  radial-gradient(820px 600px at -6% 20%,rgba(150,40,32,.08),transparent 56%),
+  radial-gradient(720px 520px at 50% 116%,rgba(196,52,40,.10),transparent 60%),
+  linear-gradient(180deg,#0c090b,#070608 46%);}
 
-/* aurora — scroll-reactive light field */
+/* aurora — campo de luz vermelho com leve movimento (inspirado nos fundos) */
 .aurora{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.aura{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;
+.aura{position:absolute;border-radius:50%;filter:blur(74px);opacity:.55;
   will-change:transform,opacity}
-.aura-1{top:-12%;right:-6%;width:46vw;height:46vw;
-  background:radial-gradient(circle,rgba(60,140,221,.30),transparent 66%)}
-.aura-2{bottom:-16%;left:-10%;width:42vw;height:42vw;
-  background:radial-gradient(circle,rgba(94,166,200,.18),transparent 66%)}
-.aura-3{top:38%;left:42%;width:34vw;height:34vw;
-  background:radial-gradient(circle,rgba(255,255,255,.10),transparent 64%)}
+.aura-1{top:-14%;right:-8%;width:48vw;height:48vw;
+  background:radial-gradient(circle,rgba(224,64,48,.26),transparent 66%);
+  animation:auraDrift1 24s ease-in-out infinite}
+.aura-2{bottom:-18%;left:-12%;width:44vw;height:44vw;
+  background:radial-gradient(circle,rgba(176,44,36,.18),transparent 66%);
+  animation:auraDrift2 30s ease-in-out infinite}
+.aura-3{top:40%;left:44%;width:36vw;height:36vw;
+  background:radial-gradient(circle,rgba(255,116,78,.12),transparent 64%);
+  animation:auraDrift3 27s ease-in-out infinite}
+@keyframes auraDrift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-4%,6%) scale(1.09)}}
+@keyframes auraDrift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6%,-5%) scale(1.11)}}
+@keyframes auraDrift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-6%,-7%) scale(1.07)}}
+@media(prefers-reduced-motion:reduce){.aura-1,.aura-2,.aura-3{animation:none}}
+/* blocos sólidos ficam semi-transparentes pro vermelho ambiente (em movimento) bleed através — menos chapado */
+#jornada,#impact360,#prova{background-color:rgba(7,7,9,.5)!important}
+#inner-ai{background-color:rgba(13,10,12,.5)!important}
 
 /* section ignite glow (scroll-reactive) */
 section{--lit-o:0}
@@ -1159,15 +1170,15 @@ section.lit{--lit-o:1}
 .iap-badge b{color:var(--blue-2);font-weight:700}
 .iap-hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 36px}
 .iap-hero-cta .btn{border-radius:999px}
-.hero--full .hero-bg.iap-hero-bg{background:radial-gradient(120% 120% at 80% 62%, rgba(232,78,56,.42) 0%, rgba(176,52,40,.2) 30%, rgba(96,34,28,.07) 52%, rgba(60,26,22,0) 70%), radial-gradient(95% 85% at 20% 100%, rgba(196,58,44,.22) 0%, rgba(96,34,28,.08) 42%, rgba(60,26,22,0) 66%), linear-gradient(160deg, #0f1013 0%, #0a0b0e 54%, #050507 100%)}
+.hero--full .hero-bg.iap-hero-bg{background:radial-gradient(120% 120% at 80% 60%, rgba(240,82,58,.58) 0%, rgba(186,54,42,.3) 28%, rgba(100,36,30,.1) 52%, rgba(60,26,22,0) 72%), radial-gradient(90% 80% at 20% 102%, rgba(210,62,48,.34) 0%, rgba(100,36,30,.12) 42%, rgba(60,26,22,0) 66%), radial-gradient(62% 52% at 50% 116%, rgba(255,94,62,.26) 0%, rgba(150,44,34,.08) 46%, transparent 64%), linear-gradient(160deg, #100f12 0%, #0a0a0d 54%, #050506 100%)}
 .iap-flow{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
 .iap-flow .iaf-band{opacity:.5}
 .iap-flow .iaf-fl,.iap-flow .iaf-blue,.iap-flow .iaf-glow,.iap-flow .iaf-red,.iap-flow .iaf-pulse{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke}
 .iap-flow .iaf-fl{stroke:rgba(200,206,220,.16);stroke-width:1}
 .iap-flow .iaf-blue{stroke:rgba(232,236,244,.62);stroke-width:1.5}
 .iap-flow .iaf-glow-b{stroke:rgba(180,190,210,.26);stroke-width:3.2}
-.iap-flow .iaf-red{stroke:rgba(234,86,64,.82);stroke-width:1.8}
-.iap-flow .iaf-glow-r{stroke:rgba(226,66,50,.44);stroke-width:6}
+.iap-flow .iaf-red{stroke:rgba(246,84,58,.95);stroke-width:2}
+.iap-flow .iaf-glow-r{stroke:rgba(238,60,46,.6);stroke-width:7.5}
 .iap-flow .iaf-pulse{stroke:rgba(255,198,172,.85);stroke-width:2.5;stroke-dasharray:24 2000;animation:iaPulseFlow 4.2s linear infinite}
 .iap-flow .iaf-pulse-b{stroke:rgba(236,240,248,.78);animation:iaPulseFlow 5.6s linear infinite;animation-delay:-2.2s}
 @keyframes iaPulseFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-2024}}
