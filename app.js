@@ -122,7 +122,7 @@
     if (!CFG.RD_ENABLED) return Promise.resolve();
     var p = getTrackingParams();
     var body = {
-      conversion_identifier: CFG.RD_CONVERSION_IDENTIFIER,   // "soluções corporativas"
+      conversion_identifier: CFG.RD_CONVERSION_IDENTIFIER,   // "ia corporativa" (segmenta como IA)
       pessoa:    payload.nome,
       email:     payload.email,
       telefone:  payload.telefone,
@@ -132,6 +132,9 @@
       cargo:     payload.cargo,
       consentimento_email: payload.consent ? 'true' : 'false',
       mensagem:  payload.msg,
+      // marcação de origem — deixa claro no lead/oportunidade que veio da página de IA
+      origem:    'IA Corporate (ia-corporate.technowhub.ai)',
+      tags:      ['IA Corporate', 'ia-corporate'],
       // atribuição (de onde veio o lead) — RD usa traffic_*; mandamos também utm_*
       traffic_source:   p.utm_source   || null,
       traffic_medium:   p.utm_medium   || null,
