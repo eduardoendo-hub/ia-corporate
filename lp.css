@@ -1370,8 +1370,11 @@ a.bt:hover{border-color:var(--blue);transform:translateY(-2px)}
 .bt-parc h3{font-size:18px;font-weight:700;color:#fff;margin:8px 0 6px;letter-spacing:-.01em}
 .bt-parc-lead{font-size:12.5px;color:var(--tx-2);line-height:1.5;margin-bottom:22px}
 .bt-parc-logos{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
-.bt-parc-logos img{height:28px;width:auto;max-width:90%;opacity:.95}
-.bt-parc-logos .parc-abrh{height:34px}
+.bt-parc-logos{flex-direction:row;flex-wrap:wrap;align-items:center;gap:22px}
+.bt-parc-logos img{width:auto;opacity:.95}
+.bt-parc-logos img[alt="Olhar Digital"]{height:26px}
+.bt-parc-logos .parc-abrh{height:30px}
+.bt-parc-logos .parc-aibrasil{height:52px}
 .bt-cursos h3{font-size:18px;font-weight:700;color:#fff;margin:8px 0 5px;letter-spacing:-.01em}
 .bt-cursos .lead{font-size:13.5px;color:var(--tx-2);margin-bottom:18px}
 .bt-cursos .lead b{color:#fff}
