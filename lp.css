@@ -28,31 +28,31 @@ section{position:relative}
 
 /* page ambient bg */
 .page-bg{position:fixed;inset:0;z-index:-2;background:
-  radial-gradient(1100px 720px at 84% -8%,rgba(214,66,50,.13),transparent 60%),
-  radial-gradient(820px 600px at -6% 20%,rgba(150,40,32,.08),transparent 56%),
-  radial-gradient(720px 520px at 50% 116%,rgba(196,52,40,.10),transparent 60%),
-  linear-gradient(180deg,#0c090b,#070608 46%);}
+  radial-gradient(1160px 780px at 84% -8%,rgba(222,70,52,.24),transparent 62%),
+  radial-gradient(880px 640px at -8% 22%,rgba(176,48,38,.17),transparent 58%),
+  radial-gradient(800px 580px at 50% 116%,rgba(208,58,44,.20),transparent 62%),
+  linear-gradient(180deg,#100a0c,#070608 50%);}
 
-/* aurora — campo de luz vermelho com leve movimento (inspirado nos fundos) */
+/* aurora — campo de luz vermelho com movimento (inspirado nos fundos) */
 .aurora{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.aura{position:absolute;border-radius:50%;filter:blur(74px);opacity:.55;
+.aura{position:absolute;border-radius:50%;filter:blur(64px);opacity:.7;
   will-change:transform,opacity}
-.aura-1{top:-14%;right:-8%;width:48vw;height:48vw;
-  background:radial-gradient(circle,rgba(224,64,48,.26),transparent 66%);
-  animation:auraDrift1 24s ease-in-out infinite}
-.aura-2{bottom:-18%;left:-12%;width:44vw;height:44vw;
-  background:radial-gradient(circle,rgba(176,44,36,.18),transparent 66%);
-  animation:auraDrift2 30s ease-in-out infinite}
-.aura-3{top:40%;left:44%;width:36vw;height:36vw;
-  background:radial-gradient(circle,rgba(255,116,78,.12),transparent 64%);
-  animation:auraDrift3 27s ease-in-out infinite}
-@keyframes auraDrift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-4%,6%) scale(1.09)}}
-@keyframes auraDrift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6%,-5%) scale(1.11)}}
-@keyframes auraDrift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-6%,-7%) scale(1.07)}}
+.aura-1{top:-14%;right:-8%;width:50vw;height:50vw;
+  background:radial-gradient(circle,rgba(230,68,52,.42),transparent 66%);
+  animation:auraDrift1 22s ease-in-out infinite}
+.aura-2{bottom:-18%;left:-12%;width:46vw;height:46vw;
+  background:radial-gradient(circle,rgba(188,50,40,.3),transparent 66%);
+  animation:auraDrift2 28s ease-in-out infinite}
+.aura-3{top:40%;left:44%;width:38vw;height:38vw;
+  background:radial-gradient(circle,rgba(255,122,84,.22),transparent 64%);
+  animation:auraDrift3 25s ease-in-out infinite}
+@keyframes auraDrift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-8%,10%) scale(1.16)}}
+@keyframes auraDrift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(10%,-8%) scale(1.18)}}
+@keyframes auraDrift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-10%,-11%) scale(1.12)}}
 @media(prefers-reduced-motion:reduce){.aura-1,.aura-2,.aura-3{animation:none}}
 /* blocos sólidos ficam semi-transparentes pro vermelho ambiente (em movimento) bleed através — menos chapado */
-#jornada,#impact360,#prova{background-color:rgba(7,7,9,.5)!important}
-#inner-ai{background-color:rgba(13,10,12,.5)!important}
+#jornada,#impact360,#prova{background-color:rgba(8,6,7,.32)!important}
+#inner-ai{background-color:rgba(14,9,11,.32)!important}
 
 /* section ignite glow (scroll-reactive) */
 section{--lit-o:0}
