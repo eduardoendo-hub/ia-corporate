@@ -23,17 +23,13 @@
     CURRENCY:        'BRL',
     // Preencher quando o Pixel entrar (deixe vazio = no-op):
     META_PIXEL_ID:   '',
-    // ─── RD Station via backend da Impacta ─────────────────────────────
-    // A LP posta no MESMO endpoint do site atual (apiv2.impacta.com.br), que
-    // cria o lead no RD e abre a oportunidade (chave da API fica no servidor).
-    // Mantenha RD_ENABLED=false até o backend liberar CORS p/ esta origem —
-    // assim não disparamos leads de teste na produção. Em impacta.com.br/corporate
-    // (mesma origem) o CORS deixa de ser problema.
-    RD_ENABLED:               true,
-    RD_ENDPOINT:              'https://apiv2.impacta.com.br/api/v1/rdstation/corporate',
-    RD_CONVERSION_IDENTIFIER: 'soluções corporativas',   // MESMO identificador do hub p/ usar a
-                                                  // automação que já abre oportunidade. A marcação
-                                                  // de que é IA vai no CORPO (produto + origem + tags).
+    // ─── RD CRM via serviço integracao-rd (rd.technowhub.ai) ───────────
+    // Mesmo mecanismo da LP do Claude: posta o lead em /api/leads e o serviço
+    // cria contato + DEAL (oportunidade) no RD CRM, conforme o campaign_slug
+    // registrado em integracao-rd/app/campaigns/registry.py (funil/etapa/tags).
+    RD_ENABLED:      true,
+    RD_LEADS_URL:    'https://rd.technowhub.ai',
+    RD_CAMPAIGN_SLUG:'corporativo-ia',   // página de IA (distingue do hub 'corporativo')
   };
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
@@ -118,41 +114,45 @@
 
   // ─── 5. Formulário de lead → IRIS + RD Station ────────────────────────────
   function sendToRD(payload) {
-    // Posta no backend da Impacta (mesmo endpoint do site atual) que cria o lead
-    // no RD e abre a oportunidade. No-op enquanto RD_ENABLED=false (espera CORS).
-    if (!CFG.RD_ENABLED) return Promise.resolve();
+    // Replica o mecanismo da LP do Claude: posta no serviço integracao-rd
+    // (rd.technowhub.ai/api/leads), que cria contato + DEAL (a oportunidade) no
+    // RD CRM. campaign_slug 'corporativo-ia' → funil/etapa/tags próprios da IA.
+    if (!CFG.RD_ENABLED) return;
     var p = getTrackingParams();
-    var body = {
-      conversion_identifier: CFG.RD_CONVERSION_IDENTIFIER,   // "ia corporativa" (segmenta como IA)
-      pessoa:    payload.nome,
-      email:     payload.email,
-      telefone:  payload.telefone,
-      empresa:   payload.empresa,
-      produto:   'IA Corporativa' + (payload.interesse ? ' — ' + payload.interesse : ''),   // marca IA por texto no corpo
-      tamanho:   payload.porte,       // "Nº de colaboradores" -> tamanho
-      cargo:     payload.cargo,
-      consentimento_email: payload.consent ? 'true' : 'false',
-      mensagem:  payload.msg,
-      // marcação de origem — deixa claro no lead/oportunidade que veio da página de IA
-      origem:    'IA Corporate (impacta.com.br/ia-corporate)',
-      tags:      ['IA Corporate', 'ia-corporate'],
-      // atribuição (de onde veio o lead) — RD usa traffic_*; mandamos também utm_*
-      traffic_source:   p.utm_source   || null,
-      traffic_medium:   p.utm_medium   || null,
-      traffic_campaign: p.utm_campaign || null,
-      traffic_value:    p.utm_content  || null,
-      utm_source:   p.utm_source   || null,
-      utm_medium:   p.utm_medium   || null,
-      utm_campaign: p.utm_campaign || null,
-      utm_content:  p.utm_content  || null,
-      utm_term:     p.utm_term     || null
+    var data = {
+      campaign_slug: CFG.RD_CAMPAIGN_SLUG,
+      name:    payload.nome,
+      email:   payload.email,
+      phone:   payload.telefone,
+      channel: 'form',
+      utm: {
+        source:   p.utm_source   || null,
+        medium:   p.utm_medium   || null,
+        campaign: p.utm_campaign || null,
+        content:  p.utm_content  || null,
+        term:     p.utm_term     || null
+      },
+      source_page: location.href,
+      // campos do form vão no `extra` → aparecem na descrição do Deal pro vendedor
+      extra: {
+        empresa:             payload.empresa,
+        cargo:               payload.cargo,
+        colaboradores:       payload.porte,
+        interesse:           payload.interesse,
+        mensagem:            payload.msg,
+        consentimento_email: payload.consent ? 'true' : 'false'
+      }
     };
-    return fetch(CFG.RD_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-      mode: 'cors'
-    }).catch(function () {});
+    try {
+      fetch(CFG.RD_LEADS_URL + '/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+        keepalive: true,
+        mode: 'cors',
+        credentials: 'omit'
+      }).catch(function () {});
+    } catch (e) {}
   }
 
   function initLeadForm() {
