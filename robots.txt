@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ia-corporate.technowhub.ai/sitemap.xml
+Sitemap: https://www.impacta.com.br/ia-corporate/sitemap.xml

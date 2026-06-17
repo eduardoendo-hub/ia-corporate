@@ -133,7 +133,7 @@
       consentimento_email: payload.consent ? 'true' : 'false',
       mensagem:  payload.msg,
       // marcação de origem — deixa claro no lead/oportunidade que veio da página de IA
-      origem:    'IA Corporate (ia-corporate.technowhub.ai)',
+      origem:    'IA Corporate (impacta.com.br/ia-corporate)',
       tags:      ['IA Corporate', 'ia-corporate'],
       // atribuição (de onde veio o lead) — RD usa traffic_*; mandamos também utm_*
       traffic_source:   p.utm_source   || null,
