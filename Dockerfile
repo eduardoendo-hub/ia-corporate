@@ -9,7 +9,7 @@ RUN apk add --no-cache curl
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Conteúdo da LP
-COPY index.html lp.css app.js robots.txt sitemap.xml /usr/share/nginx/html/
+COPY index.html lp.css app.js favicon.ico robots.txt sitemap.xml /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
 
 EXPOSE 80
