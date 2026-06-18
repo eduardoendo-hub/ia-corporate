@@ -105,6 +105,7 @@
         if (cta === 'whatsapp') {
           sendIrisEvent('click_whats', { channel: 'whatsapp' });
           track('Contact', { placement: 'whatsapp' });
+          track('Lead', { content_name: 'WhatsApp', placement: 'whatsapp' });  // WhatsApp também conta como Lead
         } else if (cta === 'proposta') {
           sendIrisEvent('click_consultor', { channel: 'proposta' });
         }
