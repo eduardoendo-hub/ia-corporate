@@ -22,7 +22,7 @@
     IRIS_EVENTS_URL: 'https://iris.technowhub.ai/api/events',
     CURRENCY:        'BRL',
     // Preencher quando o Pixel entrar (deixe vazio = no-op):
-    META_PIXEL_ID:   '',
+    META_PIXEL_ID:   '1001182995893574',
     // ─── RD CRM via serviço integracao-rd (rd.technowhub.ai) ───────────
     // Mesmo mecanismo da LP do Claude: posta o lead em /api/leads e o serviço
     // cria contato + DEAL (oportunidade) no RD CRM, conforme o campaign_slug
