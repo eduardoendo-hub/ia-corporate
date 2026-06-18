@@ -23,6 +23,9 @@
     CURRENCY:        'BRL',
     // Preencher quando o Pixel entrar (deixe vazio = no-op):
     META_PIXEL_ID:   '1001182995893574',
+    // ─── Google Ads (gtag) — CONFIRME o ID + label na sua conta do Google Ads ───
+    GADS_ID:               'AW-1056567970',
+    GADS_CONVERSION_LABEL: 'AW-1056567970/z8phCJaNtsEcEKLl5_cD',
     // ─── RD CRM via serviço integracao-rd (rd.technowhub.ai) ───────────
     // Mesmo mecanismo da LP do Claude: posta o lead em /api/leads e o serviço
     // cria contato + DEAL (oportunidade) no RD CRM, conforme o campaign_slug
@@ -106,6 +109,7 @@
           sendIrisEvent('click_whats', { channel: 'whatsapp' });
           track('Contact', { placement: 'whatsapp' });
           track('Lead', { content_name: 'WhatsApp', placement: 'whatsapp' });  // WhatsApp também conta como Lead
+          gadsConversion();   // Google Ads: clique no WhatsApp também é conversão
         } else if (cta === 'proposta') {
           sendIrisEvent('click_consultor', { channel: 'proposta' });
         }
@@ -177,6 +181,7 @@
       // IRIS: evento de lead (sem PII sensível — empresa/interesse para o cockpit)
       sendIrisEvent('lead_form', { empresa: data.empresa, interesse: data.interesse, porte: data.porte });
       track('Lead', { content_name: data.interesse || 'corporate' });
+      gadsConversion();   // Google Ads: conversão no envio do formulário
       // RD Station (no-op até configurar o token)
       sendToRD(data);
       // UI de sucesso (otimista)
@@ -198,6 +203,26 @@
     window.fbq('track', 'PageView');
   }
 
+  // ─── 6b. Google Ads (gtag) — no-op até ter GADS_ID ────────────────────────
+  function initGads() {
+    if (!CFG.GADS_ID || window.gtag) return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + CFG.GADS_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', CFG.GADS_ID);
+  }
+  // Dispara a conversão do Google Ads. Chamado no submit do form E no clique
+  // do WhatsApp — os dois contam como conversão de cadastro.
+  function gadsConversion() {
+    if (window.gtag && CFG.GADS_CONVERSION_LABEL) {
+      try { window.gtag('event', 'conversion', { send_to: CFG.GADS_CONVERSION_LABEL }); } catch (e) {}
+    }
+  }
+
   function track(eventName, params) {
     params = params || {};
     if (window.fbq) { try { window.fbq('track', eventName, params); } catch (e) {} }
@@ -212,6 +237,7 @@
   }
 
   initPixel();
+  initGads();
   apply();
   new MutationObserver(apply).observe(document.body, { childList: true, subtree: true });
 
