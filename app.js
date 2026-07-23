@@ -200,6 +200,7 @@
       t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
       (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     window.fbq('init', CFG.META_PIXEL_ID);
+    window.fbq('init', '1581473926936760'); // Pixel IRIS — dupla queima durante a migração p/ pixel único
     window.fbq('track', 'PageView');
   }
 
